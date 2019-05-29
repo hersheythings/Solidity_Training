@@ -1,4 +1,3 @@
-/ Youtube 광고수익 정산 스마트 계약 프로그램 using OraclizeAPI
 pragma solidity ^0.4.2;
 
 import "github.com/oraclize/ethereum-api/oraclizeAPI.sol"; // oraclizeAPI 문서를 상속합시다ㅏㅏ
@@ -20,11 +19,10 @@ function AdPerformance (address _beneficiary, uint _gweiToPayPerView, string _yo
         youtubeId = _youtubeId
         withdrawn = false;
 }
-
 => 위에서 선언한 변수들에 대해서, 아래 5가지 함수를 활용해 구체적 기능을 부여.
 
-// 본격 광고수익 정산 관련 Function 및 기능 추가 코딩
-/// 1. 광고수익 인출 관련 기능
+# 본격 광고수익 정산 관련 Function 및 기능 추가 코딩
+///1. 광고수익 인출 관련 기능
     function withdraw () public {
         require(msg.sender) == beneficiary
         require(!withdrawn);
@@ -34,7 +32,7 @@ function AdPerformance (address _beneficiary, uint _gweiToPayPerView, string _yo
         oraclize_query('URL', query)
     }
 
-///2.
+///2. 광고수익 실제 정산 관련 기능
     function __callback(bytes32, string result) public {
         require(msg.sender == oraclize_cbAddress());
         require(!withdrawn);
@@ -51,12 +49,12 @@ function AdPerformance (address _beneficiary, uint _gweiToPayPerView, string _yo
         withdrawn = true;
     }
 
-///3.
+///3. 출금여부 확인 기능
     function isWithdrawn() public view returns (bool) {
         return withdrawn;
     }
 
-///4.
+///4. 환불 기능
     function refund() public {
         require(msg.sender == owner);
         require(withdrawn);
@@ -67,7 +65,7 @@ function AdPerformance (address _beneficiary, uint _gweiToPayPerView, string _yo
         }
     }
 
-///5.
+///5. WTF
     function stringToUint(string s) internal pure returns (uint result) {
         bytes memory b = bytes(s);
         uint i;
@@ -79,7 +77,3 @@ function AdPerformance (address _beneficiary, uint _gweiToPayPerView, string _yo
             }
         }
     }
-
-    // => 항상, 특정 함수(function)를 선언하면 그 내부적으로 require, string 등 변수를 섞어서 세부 기능들을 구조화/구체화 !
-    // 어려우면, 위처럼 function 단위로 끊어서 거시적으로 메카닉을 살펴본다음, 세부사항으로 들어가기.
-    // 숲 ==> 나무 ;
