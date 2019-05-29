@@ -3,7 +3,7 @@
 ## Several Codes Included
 - Simple Smart Contracts
   - Banking (Withdraw, Deposit, etc)
-  - Crowdfunding (Kickstarter like)
+  - Crowdfunding (Kickstarter type)
   - Auction
   - Ad Performance Clearing 
 
