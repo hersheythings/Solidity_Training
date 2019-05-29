@@ -6,3 +6,7 @@
   - Crowdfunding (Kickstarter like)
   - Auction
   - Ad Performance Clearing 
+
+## Token Interfaces (by Open Zepplin)
+- ERC20
+- ERC721
