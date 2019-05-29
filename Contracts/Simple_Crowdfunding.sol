@@ -16,7 +16,7 @@ Contract Crowdfunding {
 }
 
 
-// 2. Accepting Pledges : 기간 또는 Cap이 달성되었을 때, 투자 종료 !
+// 2. Accepting Pledges 
 function pledge(uint amount) public payable {
   require(now < deadline);
   require(msg.value == amount);
