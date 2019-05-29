@@ -1,6 +1,4 @@
 / Youtube 광고수익 정산 스마트 계약 프로그램 using OraclizeAPI
-/// SOPT 할 때까지 가만히 있어 썅놈아... 현재에 집중하면서.
-
 pragma solidity ^0.4.2;
 
 import "github.com/oraclize/ethereum-api/oraclizeAPI.sol"; // oraclizeAPI 문서를 상속합시다ㅏㅏ
@@ -82,6 +80,6 @@ function AdPerformance (address _beneficiary, uint _gweiToPayPerView, string _yo
         }
     }
 
-    // => 항상, 특정 함수(function)를 선언하면 그 내부적으로 require, string 등 변수를 섞어서 세부 기능들을 구조화/구체화시키는 것 !
+    // => 항상, 특정 함수(function)를 선언하면 그 내부적으로 require, string 등 변수를 섞어서 세부 기능들을 구조화/구체화 !
     // 어려우면, 위처럼 function 단위로 끊어서 거시적으로 메카닉을 살펴본다음, 세부사항으로 들어가기.
-    // 숲 ==> 나무 ; 항상 니 스타일이었잖수
+    // 숲 ==> 나무 ;
